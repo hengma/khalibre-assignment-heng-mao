@@ -7,11 +7,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "github")
-public class GithubXML extends Github {
+public class GithubXML {
 
 	@XmlElement(name = "totalCount")
 	private String totalCount;
 
+	@XmlElement(name = "items")
+	private Items items;
+	
+	/**
+	 * @return the items
+	 */
+	public Items getItems() {
+		return items;
+	}
+
+	/**
+	 * @param items the items to set
+	 */
+	public void setItems(Items items) {
+		this.items = items;
+	}
+
+	
 	/**
 	 * @return the totalCount
 	 */
