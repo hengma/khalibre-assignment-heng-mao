@@ -15,8 +15,8 @@ public class ClientTest {
 			URL url = new URL(urlString);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
-			//conn.setRequestProperty("CONTENT-TYPE", "application/xml");
-			conn.setRequestProperty("accept", "application/json");
+			conn.setRequestProperty("CONTENT-TYPE", "application/xml");
+			//conn.setRequestProperty("accept", "application/json");
 
 			if (conn.getResponseCode() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : "
