@@ -5,12 +5,6 @@ This assignment is to create a new Web Application for calling Restful Service o
 https://api.github.com/search/repositories and return the information to Clients.
 
 
-Develop and test with
----------------------
-Web Container:  apache-tomcat-6.0.14
-Build		 :  Maven 3.3.3
-JDK			 :  1.8.0_71 
-
 =================
 Restful TEST
 =================
