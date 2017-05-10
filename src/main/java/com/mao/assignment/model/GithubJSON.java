@@ -12,19 +12,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class GithubJSON {
 	
 	@XmlElement (name="total_count")
-	private String total_count;
+	private Long total_count;
 
 	@XmlElement( name="item" )
-	private List<Item> items = null;
+	private List<Item> items;
 
-	public String getTotal_count() {
+	/**
+	 * @return the total_count
+	 */
+	public Long getTotal_count() {
 		return total_count;
 	}
 
-	public void setTotal_count(String total_count) {
+	/**
+	 * @param total_count the total_count to set
+	 */
+	public void setTotal_count(Long total_count) {
 		this.total_count = total_count;
 	}
-	
 
 	public List<Item> getItems() {
 		return items;

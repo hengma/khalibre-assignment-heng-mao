@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class GithubXML {
 
 	@XmlElement(name = "totalCount")
-	private String totalCount;
+	private Long totalCount;
 
 	@XmlElement(name = "items")
 	private Items items;
@@ -29,20 +29,20 @@ public class GithubXML {
 		this.items = items;
 	}
 
-	
 	/**
 	 * @return the totalCount
 	 */
-	public String getTotalCount() {
+	public Long getTotalCount() {
 		return totalCount;
 	}
 
 	/**
 	 * @param totalCount the totalCount to set
 	 */
-	public void setTotalCount(String totalCount) {
+	public void setTotalCount(Long totalCount) {
 		this.totalCount = totalCount;
 	}
 
+	
 	
 }
