@@ -20,8 +20,10 @@ import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 import com.mao.assignment.model.Github;
-import com.mao.assignment.model.GithubJson;
-import com.mao.assignment.model.GithubXml;
+import com.mao.assignment.model.GithubJSON;
+import com.mao.assignment.model.GithubXML;
+import com.mao.assignment.model.Items;
+import com.mao.assignment.model.JSONObject;
 
 @Path("/search")
 public class SearchService {
@@ -33,21 +35,25 @@ public class SearchService {
 			@QueryParam("q") String q,
 			@DefaultValue("star") @QueryParam("sort") String sort,
 			@DefaultValue("desc") @QueryParam("order") String order) {
-
-		String response =  getResponse(q, sort, order);
-
+	
 		Gson g = new Gson();
-		GithubJson githubJson = g.fromJson(response.toString(), GithubJson.class);
+		JSONObject jsonObject = g.fromJson(getResponse(q, sort, order), JSONObject.class);
 
 		if(headers.getRequestHeaders().get("content-type") != null && MediaType.APPLICATION_XML.equals(headers.getRequestHeaders().get("content-type").get(0))) {
-			GithubXml githubXml = new GithubXml();
-			githubXml.setTotalCount(githubJson.getTotal_count());
-			githubXml.setItems(githubJson.getItems());
+			GithubXML githubXml = new GithubXML();
+			githubXml.setTotalCount(jsonObject.getTotal_count());
+			Items items = new Items();
+			items.setItems(jsonObject.getItems());
+			githubXml.setItems(items);
 			return githubXml;
 		}
 		
-		
-		return githubJson;
+		GithubJSON githubJson = new GithubJSON();
+		githubJson.setTotal_count(jsonObject.getTotal_count());
+		Items items = new Items();
+		items.setItems(jsonObject.getItems());
+		githubJson.setItems(items);
+		return githubJson;		
 	}
 	
 	
@@ -60,6 +66,7 @@ public class SearchService {
 	 */
 	public String getResponse(String q, String sort, String order) {
 
+		//Parameter q is mandatory
 		if (q == null) {
 			throw new WebApplicationException(Response
 					.status(HttpURLConnection.HTTP_BAD_REQUEST)

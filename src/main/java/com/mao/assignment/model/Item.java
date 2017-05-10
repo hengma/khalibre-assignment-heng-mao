@@ -2,7 +2,7 @@ package com.mao.assignment.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "item")
 public class Item {
 
 	private String id;	
