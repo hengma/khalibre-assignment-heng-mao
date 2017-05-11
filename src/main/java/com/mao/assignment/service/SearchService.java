@@ -66,7 +66,7 @@ public class SearchService {
 	 * @param order The sort order if sort parameter is provided. One of asc or desc. Default: desc.
 	 * @return response string
 	 */
-	public String getResponse(String q, String sort, String order) {
+	private String getResponse(String q, String sort, String order) {
 
 		//Parameter q is mandatory
 		if (q == null) {
