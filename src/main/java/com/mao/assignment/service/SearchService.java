@@ -38,8 +38,9 @@ public class SearchService {
 	
 		Gson g = new Gson();
 		GithubJSON githubJSON = g.fromJson(getResponse(q, sort, order), GithubJSON.class);
-
-		if(headers.getRequestHeaders().get("content-type") != null && MediaType.APPLICATION_XML.equals(headers.getRequestHeaders().get("content-type").get(0))) {
+		
+		if(headers.getRequestHeaders().get(HttpHeaders.CONTENT_TYPE) != null 
+				&& MediaType.APPLICATION_XML.equals(headers.getRequestHeaders().get(HttpHeaders.CONTENT_TYPE).get(0))) {
 			GithubXML githubXml = new GithubXML();
 			githubXml.setTotalCount(githubJSON.getTotal_count());
 			Items items = new Items();
