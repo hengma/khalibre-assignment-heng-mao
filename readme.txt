@@ -19,9 +19,9 @@ To test restful service, you can use:
 =================
 Reference API
 =================
-1. Google Gson: is a Java library that can be used to convert Java Objects into respective JSON format.
+1. Google Gson: is a Java library that can be used to convert Java Objects into respective JSON format and JSON format into Java Object.
    	Please read http://howtodoinjava.com/best-practices/google-gson-tutorial-convert-java-object-to-from-json/
-2. JAXB: is an API that can be used to convert Java Object into XML format and XML format to Java Object.
+2. JAXB: is an API that can be used to convert Java Object into XML format and XML format into Java Object.
 	Please read https://docs.oracle.com/javase/tutorial/jaxb/intro/
 3. RESTEasy: is a JBoss project that provides various frameworks to help you build RESTful Web Services and RESTful Java applications.
 	Please read http://resteasy.jboss.org/
