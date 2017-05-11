@@ -72,7 +72,7 @@ public class SearchService {
 		if (q == null) {
 			throw new WebApplicationException(Response
 					.status(HttpURLConnection.HTTP_BAD_REQUEST)
-					.entity("q parameter is mandatory").build());
+					.entity("q parameter is mandatory!").build());
 		}
 
 		String param = "q=" + q + "&sort=" + sort + "&order=" + order;
