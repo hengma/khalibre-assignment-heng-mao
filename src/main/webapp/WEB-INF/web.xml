@@ -11,17 +11,29 @@
 	</context-param>
 	-->
 	
+	<!-- 
+		If you want the REST interface is handling only requests on a special URL, 
+		you have to specify a the resteasy.servlet.mapping.prefix in your web.xml 
+	-->
 	<context-param>
 		<param-name>resteasy.servlet.mapping.prefix</param-name>
 		<param-value>/</param-value>
 	</context-param>
 
-	<!-- JSON must disabled the RESTEasy auto scanning above -->
+	<!-- 
+		JSON must disable the RESTEasy auto scanning above
+		A comma delimited list of fully qualified JAX-RS resource class names you want to register 
+	-->
 	<context-param>
 		<param-name>resteasy.resources</param-name>
 		<param-value>com.mao.assignment.service.SearchService</param-value>
 	</context-param>
 
+	<!--
+		The ResteasyBootstrap listener is responsible for initializing some basic components of RESTeasy as well as 
+		scanning for annotation classes you have in your WAR file. It receives configuration options from <context-param> elements. 
+		Here's a list of what options are available 
+	 -->
 	<listener>
 		<listener-class>
 			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
