@@ -81,7 +81,7 @@ public class SearchService {
 			URL url = new URL(urlString);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 
 			if (conn.getResponseCode() != 200) {
 				throw new WebApplicationException(Response
