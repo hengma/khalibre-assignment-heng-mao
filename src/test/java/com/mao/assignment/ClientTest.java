@@ -7,6 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.ws.rs.HttpMethod;
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
+
 public class ClientTest {
 
 	public static void main(String arg[]) {
@@ -14,11 +18,11 @@ public class ClientTest {
 		try {
 			URL url = new URL(urlString);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			//conn.setRequestProperty("CONTENT-TYPE", "application/xml");
-			conn.setRequestProperty("accept", "application/json");
-
-			if (conn.getResponseCode() != 200) {
+			conn.setRequestMethod(HttpMethod.GET);
+			//conn.setRequestProperty(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_XML);
+			conn.setRequestProperty(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
+			
+			if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
 				throw new RuntimeException("Failed : HTTP error code : "
 						+ conn.getResponseCode());
 			}
